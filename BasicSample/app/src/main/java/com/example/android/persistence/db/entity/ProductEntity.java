@@ -21,64 +21,69 @@ import android.arch.persistence.room.PrimaryKey;
 
 import com.example.android.persistence.model.Product;
 
-@Entity(tableName = "products")
-public class ProductEntity implements Product {
-    @PrimaryKey
-    private int id;
-    private String name;
-    private String description;
-    private int price;
+@Entity(tableName = "products") public class ProductEntity implements Product {
+  @PrimaryKey private int id;
+  private String name;
+  private String description;
+  private int price;
+  private String url;
 
-    @Override
-    public int getId() {
-        return id;
-    }
+  @Override public int getId() {
+    return id;
+  }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    @Override
-    public String getName() {
-        return name;
-    }
+  @Override public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    @Override
-    public String getDescription() {
-        return description;
-    }
+  @Override public String getDescription() {
+    return description;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    @Override
-    public int getPrice() {
-        return price;
-    }
+  @Override public int getPrice() {
+    return price;
+  }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
+  public void setUrl(String url) {
+    this.url = url;
+  }
 
-    public ProductEntity() {
-    }
+  @Override public String getUrl() {
+    return url;
+  }
 
-    public ProductEntity(int id, String name, String description, int price) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-    }
+  public void setPrice(int price) {
+    this.price = price;
+  }
 
-    public ProductEntity(Product product) {
-        this.id = product.getId();
-        this.name = product.getName();
-        this.description = product.getDescription();
-        this.price = product.getPrice();
-    }
+  public ProductEntity() {
+  }
+
+  public ProductEntity(int id, String name, String description, int price,String url) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.price = price;
+    this.url=url;
+  }
+
+  public ProductEntity(Product product) {
+    this.id = product.getId();
+    this.name = product.getName();
+    this.description = product.getDescription();
+    this.price = product.getPrice();
+    this.url = product.getUrl();
+  }
 }
