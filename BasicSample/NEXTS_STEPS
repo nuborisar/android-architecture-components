@@ -1,0 +1,4 @@
+-Lo siguiente, mostrar la imagen tb en el detalle.
+-crear un item igual igual xo sin image view, para poder hacer la comparativa
+-crear un layout del list_fragment con el recycler view de glide q recicla mejor
+-Hacer un interactor que consulte info a red con retrofit y ver que tal encaja con el LiveData
