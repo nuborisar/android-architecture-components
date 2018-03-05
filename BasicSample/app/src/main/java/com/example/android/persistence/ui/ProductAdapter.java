@@ -23,8 +23,7 @@ import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.GlideBuilder;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.android.persistence.GlideApp;
 import com.example.android.persistence.R;
 import com.example.android.persistence.databinding.ProductItemBinding;
@@ -89,10 +88,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     holder.binding.setProduct(mProductList.get(position));
     holder.binding.executePendingBindings();
     try {
-      //Glide.init(mContext, new GlideBuilder());
-      //Glide.get(mContext)
+
+      RequestOptions myOptions =
+          new RequestOptions()
+              .centerCrop().override(640, 480); //with this line 100mb menos de ram
       GlideApp.get(mContext)
-       .with(mContext).load(mProductList.get(position).getUrl()).into(holder.binding.image);
+          .with(mContext)
+          .load(mProductList.get(position).getUrl())
+          .apply(myOptions)
+          .into(holder.binding.image);
     } catch (Throwable throwable) {
       System.out.println(throwable.toString());
     }

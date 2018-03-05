@@ -1,0 +1,27 @@
+Modo correcto de mostrar imagenes que tengan la resolucion
+
+640*480
+
+Imagenes q se muestren completas rellenando por completo el item de la lista y que Glide utilize el método Override para evitar los re-escalado s de la imagen
+que consumen mucha memoria.
+
+Por un lado Glide debe cargar la imagen con:
+RequestOptions myOptions =
+                                                      new RequestOptions().centerCrop().override(640, 480); //with this line 100mb menos de ram
+                                                  GlideApp.get(mContext)
+                                                      .with(mContext)
+                                                      .load(mProductList.get(position).getUrl())
+                                                      .apply(myOptions)
+                                                      .into(holder.binding.image);
+
+  y Siendo el layout:
+
+   <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"/>
+
+
+            De consumir al inicio 80 y acabar enunos 120mb-160mb poniendo este override con el centercrop() pasamos a
+            40mb y 50mb de tope

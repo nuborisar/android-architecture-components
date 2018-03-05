@@ -7,7 +7,6 @@ import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.Registry;
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.load.DecodeFormat;
-import com.bumptech.glide.load.engine.cache.LruResourceCache;
 import com.bumptech.glide.module.AppGlideModule;
 
 /**
@@ -25,7 +24,7 @@ import com.bumptech.glide.module.AppGlideModule;
     // Memorya
     /*este funciona mejor q el bitmappool*/
     int memoryCacheSizeBytes = 1024 * 1024 * 30; // 30mb
-    glideBuilder.setMemoryCache(new LruResourceCache(memoryCacheSizeBytes));
+   // glideBuilder.setMemoryCache(new LruResourceCache(memoryCacheSizeBytes));
 
     //Disk(glide 4v, not work yet)
     //int diskCacheSizeBytes = 1024 * 1024 * 100; // 100 MB
